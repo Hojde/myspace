@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My space</title>
+    </head>
+    <body>
+        <!-- for development -->
+        <script th:if="${appMode} == 'dev'" type="module">
+          import RefreshRuntime from 'http://localhost:5173/@react-refresh'
+          RefreshRuntime.injectIntoGlobalHook(window)
+          window.$RefreshReg$ = () => {}
+          window.$RefreshSig$ = () => (type) => type
+          window.__vite_plugin_react_preamble_installed__ = true
+        </script>
+
+        <script th:if="${appMode} == 'dev'" type="module" src="http://localhost:5173/@vite/client"></script>
+        <script th:if="${appMode} == 'dev'" type="module" src="http://localhost:5173/main.tsx"></script>
+
+        <!-- for production -->
+        <link th:if="${appMode} != 'dev'" rel="stylesheet" href="/bundle/main.css" />
+        <script th:if="${appMode} != 'dev'" type="module" src="/bundle/main.js"></script>
+
+        <div id="root"></div>
+    </body>
+</html>
