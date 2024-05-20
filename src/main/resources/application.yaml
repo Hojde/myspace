@@ -1,5 +1,14 @@
 server:
-    servlet:
-        context-path: /myspace
+  servlet:
+    context-path: /myspace
 app:
-    mode: prod
+  mode: prod
+spring:
+  data:
+    mongodb:
+      uri: ${DATABASE_URL}
+springdoc:
+  swagger-ui:
+    path: /api/swagger-ui.html
+  api-docs:
+    path: /api/api-docs
