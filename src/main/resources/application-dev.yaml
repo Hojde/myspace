@@ -1,6 +1,6 @@
+app:
+  mode: dev
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/myspace
-app:
-  mode: dev
+      uri: mongodb://localhost:27017/ludy
